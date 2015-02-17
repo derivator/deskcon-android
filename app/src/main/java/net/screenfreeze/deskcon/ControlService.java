@@ -24,6 +24,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Environment;
@@ -223,7 +224,7 @@ public class ControlService extends Service {
 		        .setSmallIcon(R.drawable.connector_launcher)
 		        .setContentTitle("Ping!")
 		        .setContentText("from "+data)
-		        .setSound(ringtone);
+		        .setSound(ringtone, AudioManager.STREAM_ALARM); //STREAM_ALARM so the phone will ring even if it's muted
 		
 		NotificationManager notificationManager =
 			    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
